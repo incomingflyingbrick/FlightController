@@ -11,6 +11,8 @@ class StarLink
         kSuccess,// Command receiv success
         kEStart,// Engine Start
         kEStop,// Shutdown Engine
+        kPData,// Engine chamber pressure
+        kTData,// Engine temp
     };
 /**
  * cmd和callBack为对应关系
@@ -19,15 +21,20 @@ public:
     StarLink(Stream &serial);
     CmdMessenger *cmdMessenger;
     void readDataLoop();
-    //**********router only cmd************
+    //********** router only cmd ************
     void cmdSuccessAck();
-    //**********coordinator only cmd************
+    void cmdEgineTempData(double tempuratue);
+    void cmdEginePressureData(double pressure);
+    //********** coordinator only cmd ************
     void cmdEngineStart();
     void cmdEngineStop();
-    //**********router only call back************
+    //********** router only callback ************
     void callBackEStart();
     void callBackEStop();
-
+    //***** coordinator only callback******
+    void callBackSuccessAck();
+    void callBackETemp();
+    void callBackEPressure();
 
 private:
     Stream *dataLink;
