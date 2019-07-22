@@ -3,11 +3,8 @@
 
 class StarLink
 {
-
     enum
     {
-        kSetLed, // Command to request led to be set in specific state
-        kStatus, // Command to report status
         kSuccess,// Command receiv success
         kEStart,// Engine Start
         kEStop,// Shutdown Engine
