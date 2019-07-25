@@ -3,8 +3,7 @@
 
 StarLink::StarLink(Stream &serial)
 {
-    dataLink = &serial;
-    cmdMessenger = cmdMessenger(dataLink);
+    cmdMessenger = new CmdMessenger(serial);
 }
 
 // call in a loop
@@ -25,7 +24,7 @@ void StarLink::cmdEgineTempData(double tempurature){
 }
 
 void StarLink::cmdEginePressureData(double pressure){
-     cmdMessenger->sendCmd(kPData,tempurature);
+     cmdMessenger->sendCmd(kPData,pressure);
 }
 
 

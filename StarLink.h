@@ -19,7 +19,7 @@ public:
     CmdMessenger *cmdMessenger;
     void readDataLoop();
     //********** router only cmd ************
-    void cmdSuccessAck();
+    void cmdSuccessAck(String type);
     void cmdEgineTempData(double tempuratue);
     void cmdEginePressureData(double pressure);
     //********** coordinator only cmd ************
@@ -32,8 +32,5 @@ public:
     void callBackSuccessAck();
     void callBackETemp();
     void callBackEPressure();
-
-private:
-    Stream *dataLink;
     
 };

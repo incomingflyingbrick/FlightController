@@ -1,4 +1,5 @@
 {
     "board": "arduino:sam:arduino_due_x_dbg",
-    "sketch": "fc.ino"
+    "sketch": "fc.ino",
+    "programmer": "AVRISP mkII"
 }
